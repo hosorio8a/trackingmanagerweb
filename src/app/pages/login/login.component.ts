@@ -21,6 +21,9 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     });
+    if (localStorage.getItem('email')) {
+      this.credential.email = localStorage.getItem('email');
+    }
     this.form.setValue(this.credential);
   }
 
@@ -29,10 +32,10 @@ export class LoginComponent implements OnInit {
       Swal.fire('Error', 'Email or Password not valid', 'error');
     } else {
       this.credential = this.form.getRawValue();
+      localStorage.setItem('email', this.credential.email);
       this.authService.singIn(this.credential)
         .subscribe((resp: any) => {
-          localStorage.setItem('authorization', resp.headers.get('authorization'));
-          localStorage.setItem('scuser', resp.headers.get('scuser'));
+          this.authService.putCredential(resp.headers.get('authorization'), resp.headers.get('scuser'));
           this.router.navigateByUrl('/home');
         }, error => {
           Swal.fire('Error', 'Email or Password not valid', 'error');

@@ -5,12 +5,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HOME_ROUTES } from './components/navbar/home.routes';
 
 const routes: Routes = [
-  { path: 'home'    , component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home'    , component: HomeComponent, canActivate: [AuthGuard], children: HOME_ROUTES},
   { path: 'register', component: RegisterComponent },
   { path: 'login'   , component: LoginComponent },
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({

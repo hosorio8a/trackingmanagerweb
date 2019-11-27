@@ -25,6 +25,11 @@ export class AuthService {
     return this.http.get(`${this.apiUser}/auth`, {headers: this.headers});
   }
 
+  putCredential(authorization, user) {
+    localStorage.setItem('authorization', authorization);
+    localStorage.setItem('scuser', user);
+  }
+
   isAuth() {
     if (localStorage.getItem('authorization')) {
       return true;
@@ -36,5 +41,12 @@ export class AuthService {
   logout() {
     localStorage.removeItem('authorization');
     localStorage.removeItem('scuser');
+  }
+
+  getCurrentUser() {
+    if (localStorage.getItem('scuser')) {
+      return JSON.parse(localStorage.getItem('scuser'));
+    }
+    return null;
   }
 }

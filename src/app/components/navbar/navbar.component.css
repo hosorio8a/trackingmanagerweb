@@ -1,0 +1,21 @@
+.font-white{
+  color: white;
+}
+
+.font-grey{
+  color: #ff1e26;
+}
+
+.company-name {
+  font-size: 22px;
+  margin-left: 3px
+}
+
+.menu-item{
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+.dropdown-menu-item{
+
+}
