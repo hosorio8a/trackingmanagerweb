@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { User } from '../components/models/User';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -22,16 +21,16 @@ export class AuthService {
     return this.http.post(`${this.apiUser}/login`, credential, {observe: 'response'});
   }
 
+  validateAuth() {
+    return this.http.get(`${this.apiUser}/auth`, {headers: this.headers});
+  }
+
   isAuth() {
     if (localStorage.getItem('authorization')) {
       return true;
     } else {
       return false;
     }
-  }
-
-  validateAuth() {
-    return this.http.get(`${this.apiUser}/auth`, {headers: this.headers});
   }
 
   logout() {
