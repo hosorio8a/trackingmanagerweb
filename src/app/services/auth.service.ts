@@ -6,16 +6,36 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-
-  url = 'http://localhost:8090/trackingmanager/api/v1/users';
+  url = 'http://localhost:8090/trackingmanager/api/v1';
+  apiUser = this.url  + '/users';
+  headers = {
+    authorization: localStorage.getItem('authorization')
+  };
 
   constructor(private http: HttpClient) { }
 
   postUser(user) {
-    return this.http.post(this.url, user);
+    return this.http.post(this.apiUser, user);
+  }
+
+  singIn(credential) {
+    return this.http.post(`${this.apiUser}/login`, credential, {observe: 'response'});
   }
 
   isAuth() {
-    return false;
+    if (localStorage.getItem('authorization')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  validateAuth() {
+    return this.http.get(`${this.apiUser}/auth`, {headers: this.headers});
+  }
+
+  logout() {
+    localStorage.removeItem('authorization');
+    localStorage.removeItem('scuser');
   }
 }
