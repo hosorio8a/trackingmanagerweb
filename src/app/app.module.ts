@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AlertsComponent } from './pages/forex/alerts/alerts.component';
+import { AlertCardComponent } from './components/alert-card/alert-card.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { AlertsComponent } from './pages/forex/alerts/alerts.component';
     RegisterComponent,
     HomeComponent,
     NavbarComponent,
-    AlertsComponent
+    AlertsComponent,
+    AlertCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { AlertsComponent } from './pages/forex/alerts/alerts.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
