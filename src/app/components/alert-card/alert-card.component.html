@@ -12,15 +12,31 @@
         </canvas>
       </div>
     </div>
-    <div class="card-body text-align-center">
-        <a href="#" class="card-link cb-font-size">Edit</a>
-        <a href="#" class="card-link cb-font-size">Delete</a>
-    </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item cb-font-size">Stop loss</li>
-      <li class="list-group-item cb-font-size">Price</li>
-      <li class="list-group-item cb-font-size">Take profit 1</li>
-      <li class="list-group-item cb-font-size">Take profit 2</li>
+      <li class="list-group-item cb-font-size">
+        <strong>Take profit 1: </strong>{{this.item.takeprofit1}}
+        <input [ngModel]="this.item.neartp1" id="neartp1" type="checkbox" name="neartp1" class="ml-3">
+        <label class="ml-1" for="neartp1">Near</label>
+        <input [ngModel]="this.item.hittp1" id="hittp1" type="checkbox" name="hittp1" class="ml-3">
+        <label class="ml-1" for="hittp1">Hit</label>
+      </li>
+      <li class="list-group-item cb-font-size">
+        <strong>Take profit 2: </strong>{{this.item.takeprofit2}}
+        <input [ngModel]="this.item.neartp2" id="neartp2" type="checkbox" name="neartp1" class="ml-3">
+        <label class="ml-1" for="neartp2">Near</label>
+        <input [ngModel]="this.item.hittp2" id="hittp2" type="checkbox" name="hittp2" class="ml-3">
+        <label class="ml-1" for="hittp2">Hit</label>
+      </li>
+      <li class="list-group-item cb-font-size">
+        <strong>Price: </strong>{{this.item.price}}
+      </li>
+      <li class="list-group-item cb-font-size">
+        <strong>Stop loss: </strong>{{this.item.stoploss}}
+      </li>
     </ul>
+    <div class="card-body text-align-center">
+      <a href="#" class="card-link cb-font-size">Edit</a>
+      <a href="#" class="card-link cb-font-size">Delete</a>
+    </div>
   </div>
 </div>
