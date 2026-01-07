@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyBulpi0waQnpdRxJj5n_-iZ7x8C9dthNwM',
+    apiKey: '',
     authDomain: 'trackingmanager-4dc9e.firebaseapp.com',
     databaseURL: 'https://trackingmanager-4dc9e.firebaseio.com',
-    projectId: 'trackingmanager-4dc9e',
+    projectId: '',
     storageBucket: 'trackingmanager-4dc9e.appspot.com',
     messagingSenderId: '549074033691',
     appId: '1:549074033691:web:ba902c4ee1a5b11fb82cbe',
